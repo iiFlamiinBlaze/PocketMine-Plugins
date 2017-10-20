@@ -1,9 +1,10 @@
 name: AdvancedFly
-main: iiFlamiinBlaze\AdvancedFly\AdvancedFly
+main: iiFlamiinBlaze\AdvancedFly
 description: An advanced survival fly plugin!
 version: 1.2
 api: [3.0.0-ALPHA7, 3.0.0-ALPHA8, 3.0.0-ALPHA9]
 author: iiFlamiinBlaze
+load: POSTWORLD
 commands:
   fly:
     description: "Fly Command"
