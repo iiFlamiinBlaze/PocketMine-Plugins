@@ -8,3 +8,7 @@
 * All rights reserved to iiFlamiinBlaze
 * Contact: http://v.ht/epediscord
 * Website: http://eruptuspe.tk
+
+## Plugins List
+* [Selector](https://github.com/iiFlamiinBlaze/PocketMine-Plugins/blob/master/Selector)
+* [AdvancedFly](https://github.com/iiFlamiinBlaze/PocketMine-Plugins/blob/master/AdvancedFly)
