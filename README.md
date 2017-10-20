@@ -3,6 +3,7 @@
 ## Information
 * All of these plugins are open source and licensed under a custom license which is here!
 * I will hopefully keep all these plugins up to date (to the newest pmmp API)
+* To get any working plugin .phar, check [poggit!](https://poggit.pmmp.io/ci/iiFlamiinBlaze/PocketMine-Plugins) or check released here on github.
 
 ## Credits
 * All rights reserved to iiFlamiinBlaze
