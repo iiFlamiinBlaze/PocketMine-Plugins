@@ -1,12 +1,25 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: iiFlamiinBlaze
- * Date: 9/4/2017
- * Time: 4:38 PM
+ * Copyright (C) 2017 iiFlamiinBlaze
+ *
+ * iiFlamiinBlaze's plugins are licensed under a custom license!
+ -==+iiFlamiinBlaze PocketMine-MP Open Source Plugins License+==-
+
+ * Do not copy/copy and paste this code without permission from [iiFlamiinBlaze](https://github.com/iiFlamiinBlaze)!
+ * You may fork this project, but make sure to give iiFlamiinBlaze and EruptusPE credit in plugin.yml and README.md!!
+ * Using these plugins from Poggit is ok (if uploaded to poggit), just make sure to give iiFlamiinBlaze credit!
+ * Anyone associated with leet.cc (beetree, spajk, MrCakeSlayer, Brodlum, OneThousand etc.) MAY NOT use this plugin!!! If LEET does use this plugin, a DCMA takedown will be brought!!
+ * If anyone abuses/doesn't abide by this license, then you will be brought with a DCMA takedown!
+ * Contact iiFlamiinBlaze: http://v.ht/epediscord
+ *
+ * All rights reserved to iiFlamiinBlaze!
+ *
+ * @author iiFlamiinBlaze
+ * Twitter: https://twitter.com/iiFlamiinBlaze
+ * GitHub: https://github.com/iiFlamiinBlaze
  */
 
-namespace AdvancedFly;
+namespace iiFlamiinBlaze\AdvancedFly;
 
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
