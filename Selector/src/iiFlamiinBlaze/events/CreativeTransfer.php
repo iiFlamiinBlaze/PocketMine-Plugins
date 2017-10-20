@@ -52,7 +52,7 @@ class CreativeTransfer extends PluginBase implements Listener{
         $sender = $event->getPlayer();
         if($sender instanceof Player){
             if($sender->getLevel("world"){
-            $inv = $sender->getInventory()}));
+            $inv = $sender->getInventory()});
             if($inv->contains(Item::get(418,0,1))){
                 $level = $sender->getLevel();
                 $x = $sender->getX();

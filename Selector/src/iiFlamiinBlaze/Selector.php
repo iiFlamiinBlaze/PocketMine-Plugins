@@ -18,7 +18,6 @@
  * Twitter: https://twitter.com/iiFlamiinBlaze
  * GitHub: https://github.com/iiFlamiinBlaze
  */
-
 namespace iiFlamiinBlaze;
 
 /**
@@ -56,6 +55,7 @@ class Selector extends PluginBase implements Listener
 
     public function onEnable()
     {
+        $plugin = $this->getServer()->getPluginManager()->getPlugin();
 
         $this->getLogger()->info(TF::GREEN . "Selector has been enabled successfully!");
         $this->getLogger()->info(TF::GREEN . "Selector made by iiFlamiinBlaze!");
@@ -99,7 +99,7 @@ class Selector extends PluginBase implements Listener
                 $level->addParticle(new LavaParticle($pos));
                 if($sender->getLevel("world"){
                 $inv->removeItem(Item::get(345, 0, 1)){
-                $inv->addItem(Item::get(101, 0, 1))}}));
+                $inv->addItem(Item::get(101, 0, 1))}});
                 $inv->addItem(Item::get(369, 0, 1));
                 $inv->addItem(Item::get(418, 0, 20));
                 $inv->addItem(Item::get(351, 8, 1));

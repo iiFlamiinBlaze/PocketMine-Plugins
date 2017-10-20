@@ -52,7 +52,7 @@ class JoinEvent extends PluginBase implements Listener
                 return true;
             }
             if($sender->getLevel("world"){
-            $inv = $sender->getInventory()}));
+            $inv = $sender->getInventory()});
             if ($inv->contains(Item::get(345, 0, 1))){
                 $inv->removeItem(Item::get(345, 0, 1));
             } else {

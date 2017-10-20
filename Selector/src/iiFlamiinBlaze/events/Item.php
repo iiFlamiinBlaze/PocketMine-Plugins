@@ -49,19 +49,19 @@ class Item extends PluginBase implements Listener{
         }
         if($item->getId() == 101){
             if($player->getLevel("world"){
-            $player->sendPopup("§7[§6EruptusPE§7]\n§a Prison\n§b Tap to transfer to server")}));
+            $player->sendPopup("§7[§6EruptusPE§7]\n§a Prison\n§b Tap to transfer to server")});
         }
         elseif($item->getId() == 369){
             if($player->getLevel("world"){
-            $player->sendPopup("§7[§6EruptusPE§7]\n§a Minigames\n§b Tap to transfer to server")}));
+            $player->sendPopup("§7[§6EruptusPE§7]\n§a Minigames\n§b Tap to transfer to server")});
         }
         elseif($item->getId() == 418){
             if($player->getLevel("world"){
-            $player->sendPopup("§7[§6EruptusPE§7]\n§a Creative\n§b Tap to transfer to server")}));
+            $player->sendPopup("§7[§6EruptusPE§7]\n§a Creative\n§b Tap to transfer to server")});
         }
         elseif($item->getId() == 351){
             if($player->getLevel("world"){
-            $player->sendPopup("§7[§6EruptusPE§7]\n§a Coming Soon\n§b Tap to transfer to server")}));
+            $player->sendPopup("§7[§6EruptusPE§7]\n§a Coming Soon\n§b Tap to transfer to server")});
         }
         return true;
     }

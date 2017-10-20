@@ -56,7 +56,7 @@ class MinigamesTransfer extends PluginBase implements Listener{
                 return true;
             }
             if($sender->getLevel("world"){
-            $inv = $sender->getInventory()}));
+            $inv = $sender->getInventory()});
             if($inv->contains(Item::get(369,0,1))){
                 $level = $sender->getLevel();
                 $x = $sender->getX();
