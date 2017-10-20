@@ -3,8 +3,8 @@
  * Copyright (C) 2017 iiFlamiinBlaze
  *
  * iiFlamiinBlaze's plugins are licensed under a custom license!
- -==+iiFlamiinBlaze PocketMine-MP Open Source Plugins License+==-
-
+ * -==+iiFlamiinBlaze PocketMine-MP Open Source Plugins License+==-
+ *
  * Do not copy/copy and paste this code without permission from [iiFlamiinBlaze](https://github.com/iiFlamiinBlaze)!
  * You may fork this project, but make sure to give iiFlamiinBlaze and EruptusPE credit in plugin.yml and README.md!!
  * Using these plugins from Poggit is ok (if uploaded to poggit), just make sure to give iiFlamiinBlaze credit!
