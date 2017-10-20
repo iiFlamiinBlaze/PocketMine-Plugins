@@ -1,0 +1,9 @@
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/iiFlamiinBlaze/PocketMine-Plugins
+branches:
+- master
+projects:
+  AdvancedFly:
+    path: AdvancedFly/
+  Selector:
+    path: Selector/
+...
