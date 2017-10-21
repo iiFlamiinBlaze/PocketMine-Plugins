@@ -47,7 +47,7 @@ class AdvancedFly extends PluginBase implements Listener{
     }
     public function onDamage(EntityDamageEvent $event){
         $entity = $event->getEntity();
-        if($this->config->get("AntiFly_Flight", true)){
+        if($this->config->get("AntiFly_Fight", true)){
             if($entity instanceof Player) {
                 if ($event instanceof EntityDamageByEntityEvent) {
                     $damager = $event->getDamager();
