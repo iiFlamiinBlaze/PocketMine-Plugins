@@ -36,22 +36,18 @@ use pocketmine\utils\TextFormat as TF;
 
 class AdvancedFly extends PluginBase implements Listener{
 
-    public $prefix = TF::GOLD . "Fly" . TF::GREEN . " > " . TF::WHITE;
     public $config;
+    public $prefix = TF::GOLD . "Fly" . TF::GREEN . " > " . TF::WHITE;
 
     public function onEnable(){
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
+        $this->getConfig()->get("config.yml");
         $this->saveResource("config.yml");
-        $this->getLogger()->info($this->prefix."Activated");
-        @mkdir($this->getDataFolder());
-        $this->config = new Config($this->getDataFolder()."config.yml", Config::YAML, [
-            "AntiFly_Fight" => true,
-            "Disable_onReconnect" => true
-        ]);
+        $this->getLogger()->info($this->prefix . "Activated");
     }
     public function onDamage(EntityDamageEvent $event){
         $entity = $event->getEntity();
-        if($this->config->get("AntiFly_Fight", true)){
+        if($this->config->get("AntiFly_Flight", true)){
             if($entity instanceof Player) {
                 if ($event instanceof EntityDamageByEntityEvent) {
                     $damager = $event->getDamager();
@@ -93,14 +89,15 @@ class AdvancedFly extends PluginBase implements Listener{
                     }
                 }
             } else {
-                $sender->sendMessage($this->prefix.TF::DARK_RED."This command is only available in-game!");
+                $sender->sendMessage($this->prefix .TF::DARK_RED."This command is only available in-game!");
 
                 return true;
             }
         }
+        return true;
     }
 
     public function onDisable() {
-        $this->getLogger()->info($this->prefix."Deactivated");
+        $this->getLogger()->info($this->prefix ."Deactivated");
     }
 }

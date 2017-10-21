@@ -1,0 +1,5 @@
+# Default - AntiFly_Flight: true
+# Default - Disable_onReconnect: true
+
+AntiFly_Flight: true
+Disable_onReconnect: true
