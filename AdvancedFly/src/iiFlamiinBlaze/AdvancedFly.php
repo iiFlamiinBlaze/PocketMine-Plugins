@@ -8,7 +8,6 @@
  * Do not copy/copy and paste this code without permission from [iiFlamiinBlaze](https://github.com/iiFlamiinBlaze)!
  * You may fork this project, but make sure to give iiFlamiinBlaze and EruptusPE credit in plugin.yml and README.md!!
  * Using these plugins from Poggit is ok (if uploaded to poggit), just make sure to give iiFlamiinBlaze credit!
- * Anyone associated with leet.cc (beetree, spajk, MrCakeSlayer, Brodlum, OneThousand etc.) MAY NOT use this plugin!!! If LEET does use this plugin, a DCMA takedown will be brought!!
  * If anyone abuses/doesn't abide by this license, then you will be brought with a DCMA takedown!
  * Contact iiFlamiinBlaze: http://v.ht/epediscord
  *
