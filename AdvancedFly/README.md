@@ -11,4 +11,4 @@
 * Anyone associated with leet.cc (beetree, spajk, MrCakeSlayer etc.) MAY NOT use this plugin!!!! 
 
 ## How to use
-* Coming Soon! (Will write in the wiki once the plugin actually works :D)
+* [AdvancedFly Wiki](https://github.com/iiFlamiinBlaze/PocketMine-Plugins/wiki/AdvancedFly)
