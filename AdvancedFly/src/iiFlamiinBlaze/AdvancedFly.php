@@ -31,7 +31,6 @@ use pocketmine\command\CommandSender;
 use pocketmine\entity\Entity;
 use pocketmine\event\entity\EntityDamageEvent;
 use pocketmine\event\entity\EntityDamageByEntityEvent;
-use pocketmine\utils\Config;
 use pocketmine\utils\TextFormat as TF;
 
 class AdvancedFly extends PluginBase implements Listener{
@@ -39,35 +38,32 @@ class AdvancedFly extends PluginBase implements Listener{
     public $config;
     public $prefix = TF::GOLD . "Fly" . TF::GREEN . " > " . TF::WHITE;
 
+
     public function onEnable(){
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
-        $this->getConfig()->get("config.yml");
-        $this->saveResource("config.yml");
-        $this->getLogger()->info($this->prefix . "Activated");
+        $this->getLogger()->info("AdvancedFly by iiFlamiinBlaze");
+        $this->getLogger()->info($this->prefix."Activated");
     }
+
     public function onDamage(EntityDamageEvent $event){
         $entity = $event->getEntity();
-        if($this->config->get("AntiFly_Fight", true)){
-            if($entity instanceof Player) {
+            if ($entity instanceof Player) {
                 if ($event instanceof EntityDamageByEntityEvent) {
                     $damager = $event->getDamager();
                     if ($damager instanceof Player) {
-                        if ($damager->getAllowFlight()) {
-                            $damager->sendMessage($this->prefix . TF::DARK_RED . "Fly disabled due to combat while flying!");
-                            $damager->setAllowFlight(false);
+                            if ($damager->getAllowFlight()) {
+                                $damager->sendMessage($this->prefix . TF::DARK_RED . "Fly disabled due to combat while flying!");
+                                $damager->setAllowFlight(false);
+                            }
                         }
                     }
                 }
             }
-        }
-    }
 
     public function onJoin(PlayerJoinEvent $event){
         $player = $event->getPlayer();
-        if($this->config->get("Disable_onReconnect", true)){
             $player->setAllowFlight(false);
         }
-    }
 
     public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args) : bool{
         if ($cmd->getName() == "fly") {
@@ -98,6 +94,7 @@ class AdvancedFly extends PluginBase implements Listener{
     }
 
     public function onDisable() {
+        $this->getLogger()->info("AdvancedFly by iiFlamiinBlaze");
         $this->getLogger()->info($this->prefix ."Deactivated");
     }
 }
