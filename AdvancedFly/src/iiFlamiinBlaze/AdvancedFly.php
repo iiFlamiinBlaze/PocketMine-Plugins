@@ -35,7 +35,6 @@ use pocketmine\utils\TextFormat as TF;
 
 class AdvancedFly extends PluginBase implements Listener{
 
-    public $config;
     public $prefix = TF::GOLD . "Fly" . TF::GREEN . " > " . TF::WHITE;
 
 
@@ -62,8 +61,14 @@ class AdvancedFly extends PluginBase implements Listener{
 
     public function onJoin(PlayerJoinEvent $event){
         $player = $event->getPlayer();
+        if($player->getGamemode("survival")){
+            $sender->sendMessage($this->prefix . TF::RED . "Flight has been updated!");
             $player->setAllowFlight(false);
+        elseif($player->getGamemode("creative")){
+            $sender->sendMessage($this->prefix . TF::GREEN . "Flight has not been updated!");
         }
+      }
+    }
 
     public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args) : bool{
         if ($cmd->getName() == "fly") {
