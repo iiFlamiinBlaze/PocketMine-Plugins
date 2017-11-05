@@ -74,8 +74,8 @@ class AdvancedFly extends PluginBase implements Listener{
                 /**
                  * onJoin in creative setAllowFlight true!
                  */
-                $player->getGamemode("creative"){
-                $player->getAllowFlight()};
+                if ($player->getGamemode("creative")){
+                $player->getAllowFlight();
                 $player->setAllowFlight(true);
                 $player->sendMessage($this->prefix . TF::GREEN . "Flight has not been updated!");
             }
