@@ -60,7 +60,7 @@ class AdvancedFly extends PluginBase implements Listener{
                 }
             }
 
-    public function onJoin(PlayerJoinEvent $event){
+    public function onJoin(PlayerJoinEvent $event) {
         $player = $event->getPlayer();
         if ($player->hasPermission("fly.command")) {
             if ($player->getGamemode("survival")) {
@@ -68,11 +68,12 @@ class AdvancedFly extends PluginBase implements Listener{
                 $player->sendMessage($this->prefix . TF::RED . "Flight has been updated!");
             } else {
                 ($player->getGamemode("creative")){
-                $player->sendMessage($this->prefix . TF::GREEN . "Flight has not been updated!")};
-
+                $player->setAllowFlight(true)};
+                $player->sendMessage($this->prefix . TF::GREEN . "Flight has not been updated!");
             }
         }
     }
+
 
     public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args) : bool{
         if ($cmd->getName() == "fly") {
