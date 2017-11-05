@@ -35,6 +35,7 @@ use pocketmine\utils\TextFormat as TF;
 
 class AdvancedFly extends PluginBase implements Listener{
 
+    public $config;
     public $prefix = TF::GOLD . "Fly" . TF::GREEN . " > " . TF::WHITE;
 
 
@@ -60,12 +61,14 @@ class AdvancedFly extends PluginBase implements Listener{
             }
 
     public function onJoin(PlayerJoinEvent $event){
-        $player = $event->getPlayer();
-        if($player->getGamemode("survival")){
-            $sender->sendMessage($this->prefix . TF::RED . "Flight has been updated!");
+          $player = $event->getPlayer();
+          if ($sender->hasPermission("fly.command")){
+            if ($player->getGamemode("survival")) {
             $player->setAllowFlight(false);
-        elseif($player->getGamemode("creative")){
-            $sender->sendMessage($this->prefix . TF::GREEN . "Flight has not been updated!");
+            $sender->sendMessage($this->prefix . TF::RED . "Flight has been updated!");
+        elseif ($player->getGamemode("creative")){
+            $sender->sendMessage($this->prefix . TF::GREEN . "Flight has not been updated!")};
+
         }
       }
     }
@@ -77,21 +80,18 @@ class AdvancedFly extends PluginBase implements Listener{
                     if (!$sender->getAllowFlight()) {
                         $sender->setAllowFlight(true);
                         $sender->sendMessage($this->prefix . TF::GREEN . "You can now fly.");
-
                         return true;
 
                     } else {
                         if ($sender->getAllowFlight()) {
                             $sender->setAllowFlight(false);
                             $sender->sendMessage($this->prefix . TF::RED . "You can no longer fly.");
-
                             return true;
                         }
                     }
                 }
             } else {
                 $sender->sendMessage($this->prefix .TF::DARK_RED."This command is only available in-game!");
-
                 return true;
             }
         }
