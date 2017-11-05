@@ -61,16 +61,17 @@ class AdvancedFly extends PluginBase implements Listener{
             }
 
     public function onJoin(PlayerJoinEvent $event){
-          $player = $event->getPlayer();
-          if ($sender->hasPermission("fly.command")){
+        $player = $event->getPlayer();
+        if ($sender->hasPermission("fly.command")) {
             if ($player->getGamemode("survival")) {
-            $player->setAllowFlight(false);
-            $sender->sendMessage($this->prefix . TF::RED . "Flight has been updated!");
-        elseif ($player->getGamemode("creative")){
-            $sender->sendMessage($this->prefix . TF::GREEN . "Flight has not been updated!")};
+                $player->setAllowFlight(false);
+                $sender->sendMessage($this->prefix . TF::RED . "Flight has been updated!");
+            } else {
+                ($player->getGamemode("creative")){
+                $sender->sendMessage($this->prefix . TF::GREEN . "Flight has not been updated!")};
 
+            }
         }
-      }
     }
 
     public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args) : bool{
