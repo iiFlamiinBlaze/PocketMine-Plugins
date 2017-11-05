@@ -5,8 +5,8 @@
  * iiFlamiinBlaze's plugins are licensed under a custom license!
  * -==+iiFlamiinBlaze PocketMine-MP Open Source Plugins License+==-
  *
- * Do not copy/copy and paste this code without permission from [iiFlamiinBlaze](https://github.com/iiFlamiinBlaze)!
- * You may fork this project, but make sure to give iiFlamiinBlaze and EruptusPE credit in plugin.yml and README.md!!
+ * Do not copy/copy and paste this code without permission from iiFlamiinBlaze!
+ * You may fork this project, but make sure to give iiFlamiinBlaze credit in plugin.yml and README.md!!
  * Using these plugins from Poggit is ok (if uploaded to poggit), just make sure to give iiFlamiinBlaze credit!
  * If anyone abuses/doesn't abide by this license, then you will be brought with a DCMA takedown!
  * Contact iiFlamiinBlaze: http://v.ht/epediscord
@@ -60,15 +60,23 @@ class AdvancedFly extends PluginBase implements Listener{
                 }
             }
 
-    public function onJoin(PlayerJoinEvent $event) {
+    public function onJoin(PlayerJoinEvent $event){
         $player = $event->getPlayer();
         if ($player->hasPermission("fly.command")) {
+            /**
+             * onJoin in survival setAllowFlight false!
+             */
             if ($player->getGamemode("survival")) {
+                $player->getAllowFlight();
                 $player->setAllowFlight(false);
                 $player->sendMessage($this->prefix . TF::RED . "Flight has been updated!");
             } else {
-                ($player->getGamemode("creative")){
-                $player->setAllowFlight(true)};
+                /**
+                 * onJoin in creative setAllowFlight true!
+                 */
+                $player->getGamemode("creative"){
+                $player->getAllowFlight()};
+                $player->setAllowFlight(true);
                 $player->sendMessage($this->prefix . TF::GREEN . "Flight has not been updated!");
             }
         }
