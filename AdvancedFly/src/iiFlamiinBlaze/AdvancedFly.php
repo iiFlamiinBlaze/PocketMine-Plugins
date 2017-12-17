@@ -35,8 +35,7 @@ use pocketmine\utils\TextFormat as TF;
 
 class AdvancedFly extends PluginBase implements Listener{
 
-    public $config;
-    public $prefix = TF::GOLD . "Fly" . TF::GREEN . " > " . TF::WHITE;
+    public $prefix = TF::GREEN . "Fly" . TF::AQUA . " > " . TF::WHITE;
 
 
     public function onEnable(){
@@ -45,49 +44,53 @@ class AdvancedFly extends PluginBase implements Listener{
         $this->getLogger()->info($this->prefix."Activated");
     }
 
-    public function onDamage(EntityDamageEvent $event){
+    public function onDamage(EntityDamageEvent $event)
+    {
         $entity = $event->getEntity();
-            if ($entity instanceof Player) {
-                if ($event instanceof EntityDamageByEntityEvent) {
-                    $damager = $event->getDamager();
-                    if ($damager instanceof Player) {
-                            if ($damager->getAllowFlight()) {
-                                $damager->sendMessage($this->prefix . TF::DARK_RED . "Fly disabled due to combat while flying!");
-                                $damager->setAllowFlight(false);
-                            }
+        if ($entity instanceof Player) {
+            if ($event instanceof EntityDamageByEntityEvent) {
+                $damager = $event->getDamager();
+                if ($damager instanceof Player) {
+                    if ($damager->getGamemode("survival")) {
+                        if ($damager->getAllowFlight()) {
+                            $damager->sendMessage($this->prefix . TF::DARK_RED . "Fly disabled due to combat while flying!");
+                            $damager->setAllowFlight(false);
                         }
                     }
                 }
             }
+        }
+    }
 
     public function onJoin(PlayerJoinEvent $event){
         $player = $event->getPlayer();
         if ($player->hasPermission("fly.command")) {
             /**
-             * onJoin in survival setAllowFlight false!
+             * onJoin if in survival mode = setAllowFlight false
              */
             if ($player->getGamemode("survival")) {
                 $player->getAllowFlight();
                 $player->setAllowFlight(false);
-                $player->sendMessage($this->prefix . TF::RED . "Flight has been updated!");
+                $player->sendMessage($this->prefix . TF::RED . "You are now in Regular Mode.");
             }
         }
     }
 
 
     public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args) : bool{
-        if ($cmd->getName() == "fly") {
+        switch ($cmd->getName()) {
+            case "fly":
             if($sender instanceof Player) {
                 if ($sender->hasPermission("fly.command")) {
                     if (!$sender->getAllowFlight()) {
                         $sender->setAllowFlight(true);
-                        $sender->sendMessage($this->prefix . TF::GREEN . "You can now fly.");
+                        $sender->sendMessage($this->prefix . TF::GREEN . "You are now in Flight Mode.");
                         return true;
 
                     } else {
                         if ($sender->getAllowFlight()) {
                             $sender->setAllowFlight(false);
-                            $sender->sendMessage($this->prefix . TF::RED . "You can no longer fly.");
+                            $sender->sendMessage($this->prefix . TF::RED . "You are now in Regular Mode.");
                             return true;
                         }
                     }
