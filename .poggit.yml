@@ -6,4 +6,6 @@ projects:
     path: AdvancedFly/
   Selector:
     path: Selector/
+  AdvancedFeed:
+    path: AdvancedFeed/
 ...
