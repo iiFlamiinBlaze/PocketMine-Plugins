@@ -2,20 +2,13 @@
 /**
  * Copyright (C) 2017 iiFlamiinBlaze
  *
- * iiFlamiinBlaze's plugins are licensed under a custom license!
- * -==+iiFlamiinBlaze PocketMine-MP Open Source Plugins License+==-
- *
- * Do not copy/copy and paste this code without permission from iiFlamiinBlaze!
- * You may fork this project, but make sure to give iiFlamiinBlaze credit in plugin.yml and README.md!!
- * Using these plugins from Poggit is ok (if uploaded to poggit), just make sure to give iiFlamiinBlaze credit!
- * If anyone abuses/doesn't abide by this license, then you will be brought with a DCMA takedown!
- * Contact iiFlamiinBlaze: http://v.ht/epediscord
- *
- * All rights reserved to iiFlamiinBlaze!
+ * iiFlamiinBlaze's plugins are licensed under GPL-3.0 license!
+ * Made by iiFlamiinBlaze for the PocketMine-MP Community!
  *
  * @author iiFlamiinBlaze
  * Twitter: https://twitter.com/iiFlamiinBlaze
  * GitHub: https://github.com/iiFlamiinBlaze
+ * Discord: https://bit.ly/epediscord
  */
 
 namespace iiFlamiinBlaze;
