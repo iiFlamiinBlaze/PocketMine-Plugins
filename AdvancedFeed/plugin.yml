@@ -3,6 +3,7 @@ version: 1.0
 api: [3.0.0-ALPHA9, 3.0.0-ALPHA10]
 description: Advanced Feeding System for PocketMine-MP
 author: iiFlamiinBlaze
+main: AdvancedFeed\AdvancedFeed
 commands:
  feed:
   description: Commands that feeds the player
