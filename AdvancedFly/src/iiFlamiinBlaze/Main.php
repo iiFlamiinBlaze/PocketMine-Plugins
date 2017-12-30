@@ -28,7 +28,7 @@ use pocketmine\utils\TextFormat as TF;
 
 class AdvancedFly extends PluginBase implements Listener{
 
-    public const PREFIX = TF::GREEN . "Fly" . TF::AQUA . " > " . TF::WHITE;
+    const PREFIX = TF::GREEN . "AdvancedFly" . TF::AQUA . " > " . TF::WHITE;
 
 
     public function onEnable(){
