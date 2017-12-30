@@ -28,17 +28,16 @@ use pocketmine\utils\TextFormat as TF;
 
 class AdvancedFly extends PluginBase implements Listener{
 
-    public $prefix = TF::GREEN . "Fly" . TF::AQUA . " > " . TF::WHITE;
+    public const PREFIX = TF::GREEN . "Fly" . TF::AQUA . " > " . TF::WHITE;
 
 
     public function onEnable(){
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
         $this->getLogger()->info("AdvancedFly by iiFlamiinBlaze");
-        $this->getLogger()->info($this->prefix."Activated");
+        $this->getLogger()->info(Main::PREFIX ."Activated");
     }
 
-    public function onDamage(EntityDamageEvent $event)
-    {
+    public function onDamage(EntityDamageEvent $event){
         $entity = $event->getEntity();
         if ($entity instanceof Player) {
             if ($event instanceof EntityDamageByEntityEvent) {
@@ -46,7 +45,7 @@ class AdvancedFly extends PluginBase implements Listener{
                 if ($damager instanceof Player) {
                     if ($damager->getGamemode("survival")) {
                         if ($damager->getAllowFlight()) {
-                            $damager->sendMessage($this->prefix . TF::DARK_RED . "Fly disabled due to combat while flying!");
+                            $damager->sendMessage(Main::PREFIX . TF::DARK_RED . "Fly disabled due to combat while flying!");
                             $damager->setAllowFlight(false);
                         }
                     }
@@ -64,7 +63,7 @@ class AdvancedFly extends PluginBase implements Listener{
             if ($player->getGamemode("survival")) {
                 $player->getAllowFlight();
                 $player->setAllowFlight(false);
-                $player->sendMessage($this->prefix . TF::RED . "You are now in Regular Mode.");
+                $player->sendMessage(Main::PREFIX . TF::RED . "You are now in Regular Mode.");
             }
         }
     }
@@ -77,19 +76,19 @@ class AdvancedFly extends PluginBase implements Listener{
                 if ($sender->hasPermission("fly.command")) {
                     if (!$sender->getAllowFlight()) {
                         $sender->setAllowFlight(true);
-                        $sender->sendMessage($this->prefix . TF::GREEN . "You are now in Flight Mode.");
+                        $sender->sendMessage(Main::PREFIX . TF::GREEN . "You are now in Flight Mode.");
                         return true;
 
                     } else {
                         if ($sender->getAllowFlight()) {
                             $sender->setAllowFlight(false);
-                            $sender->sendMessage($this->prefix . TF::RED . "You are now in Regular Mode.");
+                            $sender->sendMessage(Main::PREFIX . TF::RED . "You are now in Regular Mode.");
                             return true;
                         }
                     }
                 }
             } else {
-                $sender->sendMessage($this->prefix .TF::DARK_RED."This command is only available in-game!");
+                $sender->sendMessage(Main::PREFIX .TF::DARK_RED."This command is only available in-game!");
                 return true;
             }
         }
@@ -98,6 +97,6 @@ class AdvancedFly extends PluginBase implements Listener{
 
     public function onDisable() {
         $this->getLogger()->info("AdvancedFly by iiFlamiinBlaze");
-        $this->getLogger()->info($this->prefix ."Deactivated");
+        $this->getLogger()->info(Main::PREFIX ."Deactivated");
     }
 }
