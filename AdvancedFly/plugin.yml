@@ -1,5 +1,5 @@
 name: AdvancedFly
-main: iiFlamiinBlaze\AdvancedFly
+main: iiFlamiinBlaze\Main
 description: An advanced survival fly plugin!
 version: 1.6
 api: [3.0.0-ALPHA8, 3.0.0-ALPHA9, 3.0.0-ALPHA10]
