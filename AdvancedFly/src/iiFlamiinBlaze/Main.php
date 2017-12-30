@@ -26,7 +26,7 @@ use pocketmine\event\entity\EntityDamageEvent;
 use pocketmine\event\entity\EntityDamageByEntityEvent;
 use pocketmine\utils\TextFormat as TF;
 
-class AdvancedFly extends PluginBase implements Listener{
+class Main extends PluginBase implements Listener{
 
     const PREFIX = TF::GREEN . "AdvancedFly" . TF::AQUA . " > " . TF::WHITE;
 
