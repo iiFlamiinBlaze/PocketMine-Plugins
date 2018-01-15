@@ -38,9 +38,7 @@ class AdvancedFeed implements PluginBase{
             case "feed":
                 if($sender->hasPermission("feed.command")){
                     if($sender instanceof Player){
-                        $food = $sender->getFoodRestore();
-                        $saturation = $sender->getSaturationRestore();
-                        $food->setFoodRestore(20);
+                        $sender->setFoodRestore(20);
                         $sender->setSaturationRestore(20);
                         $sender->addTitle("§aYou have now been fed $sender!");
                     }
