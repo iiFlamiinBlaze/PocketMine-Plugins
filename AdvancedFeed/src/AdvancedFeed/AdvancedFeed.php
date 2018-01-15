@@ -41,7 +41,7 @@ class AdvancedFeed implements PluginBase{
                         $food = $sender->getFoodRestore();
                         $saturation = $sender->getSaturationRestore();
                         $food->setFoodRestore(20);
-                        $saturation->setSaturationRestore(20);
+                        $sender->setSaturationRestore(20);
                         $sender->addTitle("§aYou have now been fed $sender!");
                     }
                 }
