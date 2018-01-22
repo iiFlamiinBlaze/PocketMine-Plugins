@@ -4,8 +4,6 @@ branches:
 projects:
   AdvancedFly:
     path: AdvancedFly/
-  Selector:
-    path: Selector/
   AdvancedFeed:
     path: AdvancedFeed/
 ...

@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2017 iiFlamiinBlaze
+ * Copyright (C) 2018 iiFlamiinBlaze
  *
  * iiFlamiinBlaze's plugins are licensed under GPL-3.0 license!
  * Made by iiFlamiinBlaze for the PocketMine-MP Community!
@@ -10,38 +10,39 @@
  * GitHub: https://github.com/iiFlamiinBlaze
  * Discord: https://bit.ly/epediscord
  */
+
 namespace AdvancedFeed;
 
-use pocketmine\event\entity\EntityEatEvent;
 use pocketmine\plugin\PluginBase;
-use pocketmine\event\Listener;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\utils\TextFormat;
-use pocketmine\player\Player;
+use pocketmine\Player;
 
 class AdvancedFeed extends PluginBase{
 
-    public $version = "v1.0";
+    const VERSION = "v1.1";
 
-    public function onEnable(){
-        $this->getLogger()->info("AdvancedFeed $version by iiFlamiinBlaze is loading...");
-        $this->getLogger()->info("AdvancedFeed $version by iiFlamiinBlaze is enabled!");
+    public function onEnable(): void{
+        $this->getLogger()->info("AdvancedFeed  " . AdvancedFeed::VERSION . " by iiFlamiinBlaze is enabled!");
     }
 
-    public function onDisable(){
-        $this->getLogger()->info("AdvancedFeed $version by iiFlamiinBlaze is disabled!");
+    public function onDisable(): void{
+        $this->getLogger()->info("AdvancedFeed " . AdvancedFeed::VERSION . " by iiFlamiinBlaze is disabled!");
     }
 
-    public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args) : bool{
-        switch ($cmd->getName()) {
+    public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args): bool{
+        switch($cmd->getName()){
             case "feed":
+                if(!$sender instanceof Player){
+                    $sender->sendMessage(TextFormat::RED . "Use this command in-game");
+                }
                 if($sender->hasPermission("feed.command")){
-                    if($sender instanceof Player){
-                        $sender->setFoodRestore(20);
-                        $sender->setSaturationRestore(20);
-                        $sender->addTitle("§aYou have now been fed $sender!");
-                    }
+                    $sender->setFood(20);
+                    $sender->setSaturation(20);
+                    $sender->sendMessage(TextFormat::GREEN . "You have now been fed!");
+                }else{
+                    $sender->sendMessage(TextFormat::RED . "You do not have permission to use this command.");
                 }
                 break;
         }

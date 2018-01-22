@@ -13,6 +13,5 @@
 * Website: http://eruptuspe.tk
 
 ## Plugins List
-* [Selector](https://github.com/iiFlamiinBlaze/PocketMine-Plugins/blob/master/Selector)
 * [AdvancedFly](https://github.com/iiFlamiinBlaze/PocketMine-Plugins/blob/master/AdvancedFly)
 * [AdvancedFeed](https://github.com/iiFlamiinBlaze/PocketMine-Plugins/blob/master/AdvancedFeed)
