@@ -20,7 +20,7 @@ use pocketmine\command\CommandSender;
 use pocketmine\utils\TextFormat;
 use pocketmine\player\Player;
 
-class AdvancedFeed implements PluginBase{
+class AdvancedFeed extends PluginBase{
 
     public $version = "v1.0";
 
