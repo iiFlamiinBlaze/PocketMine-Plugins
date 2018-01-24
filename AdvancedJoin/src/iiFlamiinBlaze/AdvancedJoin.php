@@ -39,7 +39,7 @@ class AdvancedJoin extends PluginBase implements Listener{
         $title = str_replace("%p", $player->getName(), $title2);
         $subtitle = str_replace("&", "§", $config->get("subtitle"));
 
-        $player->addTitle($title, $subtitle, 80, 100, 40);
+        $player->addTitle($title, $subtitle);
     }
 
     public function onCommand(CommandSender $sender, Command $command, string $label, array $args) : bool{
