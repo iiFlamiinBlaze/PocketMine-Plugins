@@ -1,0 +1,14 @@
+name: AdvancedJoin
+main: iiFlamiinBlaze\AdvancedJoin
+description: An advanced join title plugin!
+version: 1.0
+api: [3.0.0-ALPHA9, 3.0.0-ALPHA10]
+author: iiFlamiinBlaze
+load: POSTWORLD
+commands:
+ titlejoin:
+  description: AdvancedJoin command!
+  permission: advancedjoin.command
+permissions:
+ advancedjoin.command:
+  default: true

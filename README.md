@@ -15,3 +15,4 @@
 ## Plugins List
 * [AdvancedFly](https://github.com/iiFlamiinBlaze/PocketMine-Plugins/blob/master/AdvancedFly)
 * [AdvancedFeed](https://github.com/iiFlamiinBlaze/PocketMine-Plugins/blob/master/AdvancedFeed)
+* [AdvancedJoin](https://github.com/iiFlamiinBlaze/PocketMine-Plugins/blob/master/AdvancedJoin)
