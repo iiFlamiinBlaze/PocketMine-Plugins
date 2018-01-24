@@ -6,4 +6,6 @@ projects:
     path: AdvancedFly/
   AdvancedFeed:
     path: AdvancedFeed/
+  AdvancedJoin:
+    path: AdvancedJoin/
 ...
