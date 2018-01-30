@@ -47,9 +47,11 @@ class AdvancedJoin extends PluginBase implements Listener{
             case "titlejoin":
                 if(!isset ($args[0])){
                     $sender->sendMessage(TextFormat::GRAY . "Usage: /titlejoin about");
+                    return true;
                 }
                 if(!$sender instanceof Player){
                     $sender->sendMessage(TextFormat::RED . "Use this command in-game!");
+                    return false;
                 }
                 if($args[0] === "about"){
                     if($sender->hasPermission("advancedjoin.command")){

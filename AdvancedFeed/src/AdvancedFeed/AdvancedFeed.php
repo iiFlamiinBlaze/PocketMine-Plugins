@@ -23,19 +23,20 @@ class AdvancedFeed extends PluginBase{
 
     const VERSION = "v1.1";
 
-    public function onEnable(): void{
+    public function onEnable() : void{
         $this->getLogger()->info("AdvancedFeed  " . AdvancedFeed::VERSION . " by iiFlamiinBlaze is enabled!");
     }
 
-    public function onDisable(): void{
+    public function onDisable() : void{
         $this->getLogger()->info("AdvancedFeed " . AdvancedFeed::VERSION . " by iiFlamiinBlaze is disabled!");
     }
 
-    public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args): bool{
+    public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args) : bool{
         switch($cmd->getName()){
             case "feed":
                 if(!$sender instanceof Player){
                     $sender->sendMessage(TextFormat::RED . "Use this command in-game");
+                    return false;
                 }
                 if($sender->hasPermission("feed.command")){
                     $sender->setFood(20);

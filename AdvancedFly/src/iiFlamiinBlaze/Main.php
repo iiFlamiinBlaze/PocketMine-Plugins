@@ -28,13 +28,13 @@ class Main extends PluginBase implements Listener{
     const PREFIX = TextFormat::GREEN . "AdvancedFly" . TextFormat::AQUA . " > " . TextFormat::WHITE;
 
 
-    public function onEnable(): void{
+    public function onEnable() : void{
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
         $this->getLogger()->info("AdvancedFly by iiFlamiinBlaze");
         $this->getLogger()->info(Main::PREFIX . "Activated");
     }
 
-    public function onDamage(EntityDamageEvent $event): void{
+    public function onDamage(EntityDamageEvent $event) : void{
         $entity = $event->getEntity();
         if($entity instanceof Player){
             if($event instanceof EntityDamageByEntityEvent){
@@ -52,7 +52,7 @@ class Main extends PluginBase implements Listener{
         }
     }
 
-    public function onJoin(PlayerJoinEvent $event): void{
+    public function onJoin(PlayerJoinEvent $event) : void{
         $player = $event->getPlayer();
         if(!$player->isCreative()){
             $player->setAllowFlight(false);
@@ -62,11 +62,12 @@ class Main extends PluginBase implements Listener{
     }
 
 
-    public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args): bool{
+    public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args) : bool{
         switch($cmd->getName()){
             case "fly":
                 if(!$sender instanceof Player){
                     $sender->sendMessage(TextFormat::RED . "Use this command in-game!");
+                    return false;
                 }
                 if($sender->hasPermission("fly.command")){
                     if(!$sender->getAllowFlight()){
@@ -89,7 +90,7 @@ class Main extends PluginBase implements Listener{
         return true;
     }
 
-    public function onDisable(): void{
+    public function onDisable() : void{
         $this->getLogger()->info("AdvancedFly by iiFlamiinBlaze");
         $this->getLogger()->info(Main::PREFIX . "Deactivated");
     }
