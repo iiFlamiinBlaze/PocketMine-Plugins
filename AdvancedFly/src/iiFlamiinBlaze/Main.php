@@ -27,11 +27,48 @@ class Main extends PluginBase implements Listener{
 
     const PREFIX = TextFormat::GREEN . "AdvancedFly" . TextFormat::AQUA . " > " . TextFormat::WHITE;
 
-
     public function onEnable() : void{
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
         $this->getLogger()->info("AdvancedFly by iiFlamiinBlaze");
         $this->getLogger()->info(Main::PREFIX . "Activated");
+    }
+
+    public function onJoin(PlayerJoinEvent $event) : void{
+        $player = $event->getPlayer();
+        if(!$player->isCreative()){
+            $player->setAllowFlight(false);
+            $player->setFlying(false);
+            $player->sendMessage(Main::PREFIX . TextFormat::RED . "Flight has been disabled!");
+        }
+    }
+
+    public function onCommand(CommandSender $sender, Command $command, string $label, array $args) : bool{
+        if($command->getName() === "fly"){
+            if(!$sender instanceof Player){
+                $sender->sendMessage(TextFormat::RED . "Use this command in-game!");
+                return false;
+            }
+            if($sender->hasPermission("fly.command")){
+                if(!$sender->isCreative()){
+                    if(!$sender->isFlying()){
+                        $sender->setAllowFlight(true);
+                        $sender->setFlying(true);
+                        $sender->sendMessage(Main::PREFIX . TextFormat::GREEN . "Flight mode activated.");
+                    }else{
+                        $sender->setAllowFlight(false);
+                        $sender->setFlying(false);
+                        $sender->sendMessage(Main::PREFIX . TextFormat::RED . "Regular mode activated.");
+                    }
+                }else{
+                    $sender->sendMessage(Main::PREFIX . TextFormat::RED . "You can only use this command in survival mode.");
+                    return false;
+                }
+            }else{
+                $sender->sendMessage(Main::PREFIX . TextFormat::RED . "You do not have permission to use this command");
+                return false;
+            }
+        }
+        return true;
     }
 
     public function onDamage(EntityDamageEvent $event) : void{
@@ -50,44 +87,6 @@ class Main extends PluginBase implements Listener{
                 }
             }
         }
-    }
-
-    public function onJoin(PlayerJoinEvent $event) : void{
-        $player = $event->getPlayer();
-        if(!$player->isCreative()){
-            $player->setAllowFlight(false);
-            $player->setFlying(false);
-            $player->sendMessage(Main::PREFIX . TextFormat::RED . "Flight has been disabled!");
-        }
-    }
-
-
-    public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args) : bool{
-        switch($cmd->getName()){
-            case "fly":
-                if(!$sender instanceof Player){
-                    $sender->sendMessage(TextFormat::RED . "Use this command in-game!");
-                    return false;
-                }
-                if($sender->hasPermission("fly.command")){
-                    if(!$sender->getAllowFlight()){
-                        $sender->setAllowFlight(true);
-                        $sender->setFlying(true);
-                        $sender->sendMessage(Main::PREFIX . TextFormat::GREEN . "Flight mode activated.");
-                        return true;
-                    }else{
-                        if($sender->getAllowFlight()){
-                            $sender->setAllowFlight(false);
-                            $sender->setFlying(false);
-                            $sender->sendMessage(Main::PREFIX . TextFormat::RED . "Regular mode activated.");
-                            return true;
-                        }
-                    }
-                }else{
-                    $sender->sendMessage(TextFormat::RED . "You do not have permission to use this command");
-                }
-        }
-        return true;
     }
 
     public function onDisable() : void{

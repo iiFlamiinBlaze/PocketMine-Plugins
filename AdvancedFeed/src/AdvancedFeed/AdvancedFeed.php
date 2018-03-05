@@ -22,31 +22,31 @@ use pocketmine\Player;
 class AdvancedFeed extends PluginBase{
 
     const VERSION = "v1.1";
+    const PREFIX = TextFormat::AQUA . "AdvancedFeed" . TextFormat::GOLD . " > ";
 
     public function onEnable() : void{
-        $this->getLogger()->info("AdvancedFeed  " . AdvancedFeed::VERSION . " by iiFlamiinBlaze is enabled!");
+        $this->getLogger()->info(AdvancedFeed::PREFIX . "AdvancedFeed  " . AdvancedFeed::VERSION . " by iiFlamiinBlaze is enabled!");
+    }
+
+    public function onCommand(CommandSender $sender, Command $command, string $label, array $args) : bool{
+        if($command->getName() === "feed"){
+            if(!$sender instanceof Player){
+                $sender->sendMessage(TextFormat::RED . "Use this command in-game");
+                return false;
+            }
+            if($sender->hasPermission("feed.command")){
+                $sender->setFood(20);
+                $sender->setSaturation(20);
+                $sender->sendMessage(AdvancedFeed::PREFIX . TextFormat::GREEN . "You have now been fed!");
+            }else{
+                $sender->sendMessage(AdvancedFeed::PREFIX . TextFormat::RED . "You do not have permission to use this command.");
+                return false;
+            }
+        }
+        return true;
     }
 
     public function onDisable() : void{
-        $this->getLogger()->info("AdvancedFeed " . AdvancedFeed::VERSION . " by iiFlamiinBlaze is disabled!");
-    }
-
-    public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args) : bool{
-        switch($cmd->getName()){
-            case "feed":
-                if(!$sender instanceof Player){
-                    $sender->sendMessage(TextFormat::RED . "Use this command in-game");
-                    return false;
-                }
-                if($sender->hasPermission("feed.command")){
-                    $sender->setFood(20);
-                    $sender->setSaturation(20);
-                    $sender->sendMessage(TextFormat::GREEN . "You have now been fed!");
-                }else{
-                    $sender->sendMessage(TextFormat::RED . "You do not have permission to use this command.");
-                }
-                break;
-        }
-        return true;
+        $this->getLogger()->info(AdvancedFeed::PREFIX . "AdvancedFeed " . AdvancedFeed::VERSION . " by iiFlamiinBlaze is disabled!");
     }
 }
