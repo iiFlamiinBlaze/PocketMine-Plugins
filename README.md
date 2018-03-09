@@ -1,4 +1,8 @@
-# iiFlamiinBlaze's PocketMine-MP Open Source Plugins!
+# iiFlamiinBlaze's PocketMine Open Source Plugins:
+
+| Phar | View Count |
+| :---: | :---: |
+[![Download](https://img.shields.io/badge/download-latest-blue.svg)](https://poggit.pmmp.io/ci/iiFlamiinBlaze/PocketMine-Plugins/~) | [![View Count](http://hits.dwyl.io/iiFlamiinBlaze/PocketMine-Plugins.svg)](http://hits.dwyl.io/iiFlamiinBlaze/PocketMine-Plugins) |
 
 ## Information:
 * All of these plugins are open source and licensed under a custom license which is [here](https://github.com/iiFlamiinBlaze/PocketMine-Plugins/blob/master/LICENSE).
@@ -10,7 +14,6 @@
 ## Credits:
 * All rights reserved to iiFlamiinBlaze.
 * Contact: https://bit.ly/epediscord
-* Website: http://eruptuspe.tk
 
 ## Plugins List:
 | Plugin |
