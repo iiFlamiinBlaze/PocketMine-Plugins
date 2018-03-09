@@ -7,7 +7,7 @@
 ## Information
 * This plugin allows you to use /fly in survival mode to fly!
 * This plugin is for anyone to use, but originally made for EruptusPE!
-* Credits: [iiFlamiinBlaze](https://github.com/iiFlamiinBlaze) and [sharletsings123](https://github.com/sharletsings123)
+* Credits: [iiFlamiinBlaze](https://github.com/iiFlamiinBlaze)
 * Anyone associated with leet.cc (beetree, spajk, MrCakeSlayer etc.) MAY NOT use this plugin!!!! 
 
 ## How to use
