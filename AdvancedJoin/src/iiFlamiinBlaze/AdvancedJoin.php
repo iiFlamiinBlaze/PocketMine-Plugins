@@ -24,7 +24,7 @@ use pocketmine\event\player\PlayerJoinEvent;
 
 class AdvancedJoin extends PluginBase implements Listener{
 
-    const VERSION = "v1.0";
+    const VERSION = "v1.1";
     const PREFIX = TextFormat::AQUA . "AdvancedJoin" . TextFormat::GOLD . " > ";
 
     public function onEnable() : void{
