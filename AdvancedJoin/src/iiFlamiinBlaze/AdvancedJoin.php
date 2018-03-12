@@ -29,6 +29,7 @@ class AdvancedJoin extends PluginBase implements Listener{
 
     public function onEnable() : void{
         $this->getLogger()->info(AdvancedJoin::PREFIX . "AdvancedJoin by iiFlamiinBlaze enabled!");
+        @mkdir($this->getDataFolder());
         $this->saveDefaultConfig();
     }
 

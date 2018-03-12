@@ -29,28 +29,32 @@ class Main extends PluginBase implements Listener{
 
     public function onEnable() : void{
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
-        $this->getLogger()->info("AdvancedFly by iiFlamiinBlaze");
-        $this->getLogger()->info(Main::PREFIX . "Activated");
+        @mkdir($this->getDataFolder());
+        $this->saveDefaultConfig();
+        $this->getLogger()->info(Main::PREFIX . "AdvancedFly by iiFlamiinBlaze enabled");
     }
 
     public function onJoin(PlayerJoinEvent $event) : void{
         $player = $event->getPlayer();
-        if(!$player->isCreative()){
-            $player->setAllowFlight(false);
-            $player->setFlying(false);
-            $player->sendMessage(Main::PREFIX . TextFormat::RED . "Flight has been disabled!");
+        $config = $this->getConfig();
+        if($config->getNested("FlyReset_OnJoin") === true){
+            if(!$player->isCreative()){
+                $player->setAllowFlight(false);
+                $player->setFlying(false);
+                $player->sendMessage(Main::PREFIX . TextFormat::RED . "Flight has been disabled.");
+            }
         }
     }
 
     public function onCommand(CommandSender $sender, Command $command, string $label, array $args) : bool{
         if($command->getName() === "fly"){
             if(!$sender instanceof Player){
-                $sender->sendMessage(TextFormat::RED . "Use this command in-game!");
+                $sender->sendMessage(TextFormat::RED . "Use this command in-game.");
                 return false;
             }
             if($sender->hasPermission("fly.command")){
                 if(!$sender->isCreative()){
-                    if(!$sender->isFlying()){
+                    if(!$sender->getAllowFlight()){
                         $sender->setAllowFlight(true);
                         $sender->setFlying(true);
                         $sender->sendMessage(Main::PREFIX . TextFormat::GREEN . "Flight mode activated.");
@@ -73,24 +77,22 @@ class Main extends PluginBase implements Listener{
 
     public function onDamage(EntityDamageEvent $event) : void{
         $entity = $event->getEntity();
-        if($entity instanceof Player){
-            if($event instanceof EntityDamageByEntityEvent){
-                $damager = $event->getDamager();
-                if($damager instanceof Player){
-                    if(!$damager->isCreative()){
-                        if($damager->getAllowFlight()){
-                            $damager->sendMessage(Main::PREFIX . TextFormat::DARK_RED . "Flight mode disabled due to combat!");
-                            $damager->setAllowFlight(false);
-                            $damager->setFlying(false);
+        $config = $this->getConfig();
+        if($config->getNested("FlyReset_OnDamage") === true){
+            if($entity instanceof Player){
+                if($event instanceof EntityDamageByEntityEvent){
+                    $damager = $event->getDamager();
+                    if($damager instanceof Player){
+                        if(!$damager->isCreative()){
+                            if($damager->getAllowFlight()){
+                                $damager->sendMessage(Main::PREFIX . TextFormat::DARK_RED . "Flight mode disabled due to combat.");
+                                $damager->setAllowFlight(false);
+                                $damager->setFlying(false);
+                            }
                         }
                     }
                 }
             }
         }
-    }
-
-    public function onDisable() : void{
-        $this->getLogger()->info("AdvancedFly by iiFlamiinBlaze");
-        $this->getLogger()->info(Main::PREFIX . "Deactivated");
     }
 }
