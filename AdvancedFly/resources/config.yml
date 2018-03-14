@@ -8,7 +8,7 @@
 #    FlyReset_OnDamage: true
 
 # The below config allows the plugin to reset flight mode when joining the server
-FlyReset_OnJoin: true
+onJoin_FlyReset: true
 # The below config allows the plugin to reset flight mode when pvping in the server
-FlyReset_OnDamage: true
+onDamage_FlyReset: true
 ...
