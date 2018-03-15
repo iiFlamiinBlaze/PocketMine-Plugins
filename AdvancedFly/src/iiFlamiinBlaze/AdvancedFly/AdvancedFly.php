@@ -12,7 +12,7 @@
  */
 declare(strict_types=1);
 
-namespace iiFlamiinBlaze;
+namespace iiFlamiinBlaze\AdvancedFly;
 
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;

@@ -12,7 +12,7 @@
  */
 declare(strict_types=1);
 
-namespace iiFlamiinBlaze;
+namespace iiFlamiinBlaze\AdvancedFeed;
 
 use pocketmine\plugin\PluginBase;
 use pocketmine\command\Command;
