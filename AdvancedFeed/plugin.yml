@@ -8,7 +8,7 @@ commands:
  feed:
   description: Commands that feeds the player
   permission: feed.command
-  usage: "/feed"
+  usage: "/feed <player>"
 permission:
  feed.command:
   default: op

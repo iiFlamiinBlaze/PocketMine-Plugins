@@ -35,19 +35,26 @@ class AdvancedFeed extends PluginBase{
                 $sender->sendMessage(TextFormat::RED . "Use this command in-game");
                 return false;
             }
+            if(!isset($args[0])){
+                $sender->sendMessage(TextFormat::GRAY . "Usage: /feed <player>");
+                return false;
+            }
             if($sender->hasPermission("feed.command")){
-                $sender->setFood(20);
-                $sender->setSaturation(20);
-                $sender->sendMessage(AdvancedFeed::PREFIX . TextFormat::GREEN . "You have now been fed!");
+                $player = $this->getServer()->getPlayer($args[0]);
+                if($player){
+                    $player->setFood(20);
+                    $player->setSaturation(20);
+                    $player->sendMessage(AdvancedFeed::PREFIX . TextFormat::GREEN . "You have now been fed!");
+                    $sender->sendMessage(AdvancedFeed::PREFIX . TextFormat::GREEN . "You have fed " . $player->getName() . ".");
+                }else{
+                    $sender->sendMessage(AdvancedFeed::PREFIX . TextFormat::RED . "Player not found.");
+                    return false;
+                }
             }else{
                 $sender->sendMessage(AdvancedFeed::PREFIX . TextFormat::RED . "You do not have permission to use this command.");
                 return false;
             }
         }
         return true;
-    }
-
-    public function onDisable() : void{
-        $this->getLogger()->info(AdvancedFeed::PREFIX . "AdvancedFeed " . AdvancedFeed::VERSION . " by iiFlamiinBlaze is disabled!");
     }
 }
